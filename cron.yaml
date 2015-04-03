@@ -1,16 +1,16 @@
 cron:
 #- description: indexingkhan
-#  url: /cronindexingkhan
-#  schedule: every 5 minutes
-#
+#  url: /cronkhanacademy
+#  schedule: every 3 minutes
+
 #- description: indexingedx
-#  url: /cronindexingedx
-#  schedule: every 5 minutes
-#
+#  url: /cronedx
+#  schedule: every 3 minutes
+
 #- description: indexingmitocw
-#  url: /cronindexingmitocw
-#  schedule: every 5 minutes
-#
+#  url: /cronmitocw
+#  schedule: every 3 minutes
+
 #- description: indexingudemy
-#  url: /cronindexingudemy
-#  schedule: every 5 minutes
+#  url: /cronudemy
+#  schedule: every 3 minutes

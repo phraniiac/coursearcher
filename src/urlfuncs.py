@@ -38,3 +38,20 @@ def extractInfo(Link,domain):
 		LinkInfo.pagetitle = "pagetitle"
 		LinkInfo.desc = "desc[:498]"
 	return LinkInfo
+
+def extractInfoEdX(Link,domain):
+    """Gets the link of the page, and returns Page title and Description of the Link"""
+    LinkInfo = fs.Links()
+    LinkInfo.link = Link
+    try:
+        response = urlopen(Link)
+        html = response.read()
+        pagetitle = html[html.find('<title>') + 7 : html.find('</title>')]
+        startindex = html.find('<meta name="description" content="')
+        desc = html[startindex + 34 : html.find('"',startindex + 38)]
+        LinkInfo.pagetitle = pagetitle
+        LinkInfo.desc = desc[:498]
+    except Exception:
+        LinkInfo.pagetitle = "pagetitle"
+        LinkInfo.desc = "desc[:498]"
+    return LinkInfo

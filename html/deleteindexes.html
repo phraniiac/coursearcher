@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block mainbody%}
+<form action="/deleteindexesres" method="get" class="container">
+		<br>
+		<input type="radio" name="opt" value="khanacademy">Khan Academy
+		<input type="radio" name="opt" value="edx">EdX
+		<input type="radio" name="opt" value="mitocw">MIT OCW
+		<input type="radio" name="opt" value="udemy">Udemy
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6" align="center"><input type="submit" value="Delete Indexes" class="btn btn-primary"></div>
+		<div class="col-sm-3"></div>
+	</div>
+</form>
+{% endblock %}

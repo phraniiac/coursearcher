@@ -8,31 +8,72 @@
 				<div class="col-sm-1" style="font-size:25px;margin-left:-20px"><a href="/">Home</a></div>
 				<input type="text" name="q" value="{{ mainkeyword }}" style="width:50%;height:30px;font-size:16px" class="form-control-inline">
 				<input type="submit" value="Search Courses" class="btn btn-primary">
+				<br>
+				<input type="radio" name="opt" value="khanacademy" checked="checked">Khan Academy
+				<input type="radio" name="opt" value="edx">EdX
+				<input type="radio" name="opt" value="mitocw">MIT OCW
+				<input type="radio" name="opt" value="udemy">Udemy
+				<input type="hidden" name="cursor" value="0">
 			</div>
 			</form>
 		</div>
+		<br>
+		<br>
 	<div class = "row">
 		<div class="col-sm-1"></div>
 			<div class="text-info">
-				Total matches found : {{ numcount }}
-				Total returned : {{ returnres }}
+				Total matches found : {{ number_found }}
+				Total returned : {{ returned_count }}
+				Domain : {{ opt }}
 			</div>
 		</div>
+		<br>
+
+		<div class="row">
+			<div class="col-sm-1"></div>
+		<form>
+		<ul class="pagination">
+			{% for x in range(0,total_pages) %}
+			{% if cursor == x %}
+			<li class="active"><a href="/result?q={{ mainkeyword }}&amp;opt={{ opt }}&amp;cursor={{x}}">{{ x }}</a></li>
+			{% else %}
+			<li><a href="/result?q={{ mainkeyword }}&amp;opt={{ opt }}&amp;cursor={{x}}">{{ x }}</a></li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+		</form>
+		</div>
+
 		<div class="row" style="margin-top:15px">
 			<div class="col-sm-1"></div>
 		<div class="col-sm-9" style="padding-bottom:30px">
-			{% if resLinks %}
 			<ul>
 			{% for result in resLinks %}
 			<li>
 			<a style="font-size:200%" href = "{{ result[0].value }}">{{ result[1].value }}</a><br>
 			<li style="margin-bottom:20px"> {{ result[2].value }} </li>
 			</li>
+			{% else %}
+			<li><em>No results Found!!!! Remember to select/change a domain, eg. Khan Academy,  and to fill the query box before searching .</em></li>
 			{% endfor %}
 			</ul>
+		</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-1"></div>
+		<form>
+		<ul class="pagination">
+			{% for x in range(0,total_pages) %}
+			{% if cursor == x %}
+			<li class="active"><a href="/result?q={{ mainkeyword }}&amp;opt={{ opt }}&amp;cursor={{x}}">{{ x }}</a></li>
+			{% else %}
+			<li><a href="/result?q={{ mainkeyword }}&amp;opt={{ opt }}&amp;cursor={{x}}">{{ x }}</a></li>
 			{% endif %}
+			{% endfor %}
+		</ul>
+		</form>
 		</div>
-		</div>
+		<br>
 	</div>
 <!--The result is {{mainkeyword}} , {{resLinks}} -->
 		{% endblock %}

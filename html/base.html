@@ -2,13 +2,16 @@
 <html>
 <head>
 <title>
-	{% block firsttitle %}{% endblock %} | By Pranav
+	{% block firsttitle %}{% endblock %} | Search Famous Online Courses!
 </title>
 <meta charset="utf-8">
-<meta name="description" content="This webapp allows you to search for MOOCS. Includes courses from Khan Academy, EdX, MIT OCW.">
+<meta name="description" content="This webapp allows you to search for MOOCS. Includes courses from Khan Academy, EdX, MIT OCW, Udemy.">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+<link rel="image_src" 
+      type="image/jpeg" 
+      href="/images/icon-facebook.gif" />
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /> 
 <style>
 ul
@@ -18,20 +21,19 @@ ul
 </style>
 </head>
 <body>
-	<div id="wrap">
+    <div id="wrap" style="height:800px;">
 	{% block queryform %}{% endblock %}
-	{% block mainbody %}{% endblock %}
+    {% block mainbody %}{% endblock %}
 	<div id="push"></div>
 	
-	<footer class="footer" style="position:fixed;bottom:0px;width:100%;left:0px;border:2px">
+	<footer class="footer" style="position:fixed;bottom:0px;width:100%;left:0px;border:2px;background-color:#fff;font-size:107%;padding-top:3px;z-index: 400000000;">
       <div class="container">
         <p class="text-muted">
-        	<a href="/aboutproject">About Project</a> | 
-        	<a href="/aboutme">About Me</a> | 
-        	<a href="http://nits.ac.in/s/pranavsharma">Pranav Sharma</a> 
-        	(<a href="http://www.nits.ac.in">NIT Silchar</a>) | 
-        	<a href="https://github.com/dastanforever/coursearcher">Clone This Project</a> | 
-        	<a href="http://www.propranav.com">My Blog</a></p>
+        	<a  href="/aboutproject">About Project</a> | 
+        	<a  href="http://nits.ac.in/s/pranavsharma">Pranav Sharma</a> 
+        	(<a  href="http://www.nits.ac.in">NIT Silchar</a>) | 
+        	<a  href="https://github.com/dastanforever/coursearcher">Clone This Project</a> | 
+        	<a  href="http://www.propranav.com">My Blog</a></p>
       </div>
     </footer>
     </div>
