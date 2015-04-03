@@ -1,0 +1,16 @@
+cron:
+#- description: indexingkhan
+#  url: /cronindexingkhan
+#  schedule: every 5 minutes
+#
+#- description: indexingedx
+#  url: /cronindexingedx
+#  schedule: every 5 minutes
+#
+#- description: indexingmitocw
+#  url: /cronindexingmitocw
+#  schedule: every 5 minutes
+#
+#- description: indexingudemy
+#  url: /cronindexingudemy
+#  schedule: every 5 minutes

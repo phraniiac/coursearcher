@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block firsttitle %}CourSEarcher{% endblock %}
+{% block queryform %}
+<div>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>CourSEarcher</h1> 
+			<p>Find moocs, small lectures, related to science, maths, and any subject that interests you. 
+			<br>For now, Khan Academy, EdX, and MIT OCW (not whole) are indexed.</p> 
+			<p class="text-muted">Made by Pranav.</p>
+		</div>
+	</div>
+<form action="/result" method="get" class="container">
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8" align="center"><input name="q" type="text" style="width:80%" class="form-control"></div>
+		<div class="col-sm-2"></div>
+	</div>
+		<br>
+		<input type="radio" name="opt" value="any" checked>Any
+		<input type="radio" name="opt" value="khanacademy">Khan Academy
+		<input type="radio" name="opt" value="edx">EdX
+		<input type="radio" name="opt" value="mitocw">MIT OCW
+		<input type="radio" name="opt" value="udemy">Udemy
+		<input type="radio" name="opt" value="udacity">Udacity
+		<input type="radio" name="opt" value="coursera">Coursera
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6" align="center"><input type="submit" value="Search Courses" class="btn btn-primary"></div>
+		<div class="col-sm-3"></div>
+	</div>
+</form>
+</div>
+{% endblock %}

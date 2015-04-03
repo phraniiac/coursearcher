@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block mainbody%}
+<form action="resdeleteall" method="get">
+	<input type="text" name="link">
+	<br>
+	<input type="radio" name="opt" value="khanacademy">Khan Academy
+	<input type="radio" name="opt" value="edx">EdX
+	<input type="radio" name="opt" value="mitocw">MIT OCW
+	<input type="radio" name="opt" value="udemy">Udemy
+	<br>
+	<input type="submit">
+</form>
+{% endblock %}

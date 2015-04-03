@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{%block firsttitle %}{{ mainkeyword }}{% endblock %}
+{% block queryform %}
+<div class="container">
+		<div class="row" style="margin-top:20px">
+			<form method="get" action="/result">
+			<div class="row">
+				<div class="col-sm-1" style="font-size:25px;margin-left:-20px"><a href="/">Home</a></div>
+				<input type="text" name="q" value="{{ mainkeyword }}" style="width:50%;height:30px;font-size:16px" class="form-control-inline">
+				<input type="submit" value="Search Courses" class="btn btn-primary">
+			</div>
+			</form>
+		</div>
+	<div class = "row">
+		<div class="col-sm-1"></div>
+			<div class="text-info">
+				Total matches found : {{ numcount }}
+				Total returned : {{ returnres }}
+			</div>
+		</div>
+		<div class="row" style="margin-top:15px">
+			<div class="col-sm-1"></div>
+		<div class="col-sm-8">
+			{% if resLinks %}
+			<ul>
+			{% for result in resLinks %}
+			<li>
+			<a style="font-size:200%" href = "{{ result[0].value }}">{{ result[1].value }}</a><br>
+			<li style="margin-bottom:20px"> {{ result[2].value }} </li>
+			</li>
+			{% endfor %}
+			</ul>
+			{% endif %}
+		</div>
+		</div>
+	</div>
+<!--The result is {{mainkeyword}} , {{resLinks}} -->
+		{% endblock %}
+</div>

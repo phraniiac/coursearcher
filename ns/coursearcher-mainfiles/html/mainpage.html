@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block firsttitle %}CourSEarcher{% endblock %}
+{% block queryform %}
+<div>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>CourSEarcher</h1> 
+			<p>Find moocs, small lectures, related to science, maths, and any subject that interests you. 
+			<br>For now, Khan Academy, EdX, and MIT OCW (not whole) are indexed.</p> 
+			<p class="text-muted">Made by Pranav.</p>
+		</div>
+	</div>
+<form action="/result" method="get" class="container">
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8" align="center"><input name="q" type="text" style="width:80%" class="form-control"></div>
+		<div class="col-sm-2"></div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6" align="center"><input type="submit" value="Search Courses" class="btn btn-primary"></div>
+		<div class="col-sm-3"></div>
+	</div>
+</form>
+</div>
+{% endblock %}

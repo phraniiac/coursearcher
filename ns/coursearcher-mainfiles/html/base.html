@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+	{% block firsttitle %}{% endblock %} | By Pranav
+</title>
+<meta charset="utf-8">
+<meta descripion="Coursearcher. Search moocs. MIT OCW, Khan Academy, Edx, all in one place.">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+<style>
+ul
+{
+	list-style-type: none;
+}
+</style>
+</head>
+<body>
+	<div id="wrap">
+	{% block queryform %}{% endblock %}
+	{% block mainbody %}{% endblock %}
+	<div id="push"></div>
+	
+	<footer class="footer" style="position:fixed;bottom:0px;width:100%;left:0px;border:2px">
+      <div class="container">
+        <p class="text-muted"><a href="/aboutproject">About Project</a> | <a href="/aboutme">About Me</a> | <a href="http://nits.ac.in/s/pranavsharma">Pranav Sharma</a> (<a href="http://www.nits.ac.in">NIT Silchar</a>) | <a href="https://github.com/dastanforever/coursearcher">Clone This Project</a></p>
+      </div>
+    </footer>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+</html>
