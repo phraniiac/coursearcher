@@ -9,6 +9,8 @@ user = users.get_current_user()
 template_dir = os.path.join(os.path.dirname(__file__),"html")
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape=True)
 
+domainlist = ['Any','KhanAcademy','EdX','MitOCW','Udemy']
+
 class Handler(webapp2.RequestHandler):
 	def write(self, *a , **kw):
 		self.response.out.write(*a, **kw)
@@ -28,7 +30,7 @@ class Handler(webapp2.RequestHandler):
 
 class mainpage(Handler):
 	def get(self):
-		self.render('mainpage.html')
+		self.render('mainpage.html',domainlist=domainlist,opt='any')
 
 class result(Handler):
 	"""docstring for result"""
@@ -40,16 +42,16 @@ class result(Handler):
 		resLinks = [[]]
 		cursor = int(self.getvar("cursor"))
 		if len(domain) <= 0 or len(query) <= 0 or domain == None:
-			self.render('result.html',number_found=number_found,returned_count=returned_count,opt=domain,mainkeyword=query,cursor=cursor,total_pages=0)
+			self.render('result.html',number_found=number_found,domainlist=domainlist,returned_count=returned_count,opt=domain,mainkeyword=query,cursor=cursor,total_pages=0)
 		else:
 			resLinks,number_found,returned_count = fs.fetchresult(query,domain)
 			total_pages = int(returned_count/10)
 			if total_pages%10 != 0:
 				total_pages += 1
 			if returned_count != 0:
-				self.render('result.html',resLinks=resLinks[cursor],number_found=number_found,returned_count=returned_count,opt=domain,mainkeyword=query,cursor=cursor,total_pages=total_pages)
+				self.render('result.html',resLinks=resLinks[cursor],domainlist=domainlist,number_found=number_found,returned_count=returned_count,opt=domain,mainkeyword=query,cursor=cursor,total_pages=total_pages)
 			else:
-				self.render('result.html',resLinks=[],number_found=number_found,returned_count=returned_count,opt=domain,mainkeyword=query,cursor=cursor,total_pages=total_pages)
+				self.render('result.html',resLinks=[],number_found=number_found,domainlist=domainlist,returned_count=returned_count,opt=domain,mainkeyword=query,cursor=cursor,total_pages=total_pages)
 
 class addlinks(Handler):
 	"""docstring for addlinks"""
@@ -62,7 +64,7 @@ class addlinks(Handler):
 class resaddlinks(Handler):
 	"""docstring for addlinks"""
 	def get(self):
-		if fs.checklogin() == 1:
+		if  fs.checklogin() == 1:
 			domain = str(self.getvar("opt"))
 			url = self.getvar("link")
 			fs.putxmllinks(url,domain)

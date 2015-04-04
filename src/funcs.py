@@ -5,6 +5,7 @@ import urlfuncs as ul
 import copy
 from google.appengine.api import users
 
+domainlist = ['Any','KhanAcademy','EdX','MitOCW','Udemy']
 
 ######## Writing Functions ########
 
@@ -214,31 +215,61 @@ def deleteindexes(domain):
 
 
 def fetchresult(query_string,domain):
-	#updatequeryentry(query_string)
-	docindex = search.Index(name = domain)
-	ListOfLinkObjects = []
-	try:
-		query_options = search.QueryOptions(limit = 200)
-		query = search.Query(query_string=query_string, options=query_options)
-		search_results = docindex.search(query,deadline=None)
-		number_found = search_results.number_found
-		returned_count = len(search_results.results)
-		i = 0
-		listob = []
-		for x in search_results:
-			listob.append(x.fields)
-			i += 1
-			if i == 10:
-				i = 0
+	updatequeryentry(query_string)
+	if domain != 'any':
+		docindex = search.Index(name = domain)
+		ListOfLinkObjects = []
+		try:
+			query_options = search.QueryOptions(limit = 200)
+			query = search.Query(query_string=query_string, options=query_options)
+			search_results = docindex.search(query,deadline=None)
+			number_found = search_results.number_found
+			returned_count = len(search_results.results)
+			i = 0
+			listob = []
+			for x in search_results:
+				listob.append(x.fields)
+				i += 1
+				if i == 10:
+					i = 0
+					listOb = copy.deepcopy(listob)
+					listob = []
+					ListOfLinkObjects.append(listOb)
+			if len(listob) > 0:
 				listOb = copy.deepcopy(listob)
-				listob = []
 				ListOfLinkObjects.append(listOb)
-		if len(listob) > 0:
-			listOb = copy.deepcopy(listob)
-			ListOfLinkObjects.append(listOb)
-		return ListOfLinkObjects,number_found,returned_count
-	except Exception:
-		return [],0,0
+			return ListOfLinkObjects,number_found,returned_count
+		except Exception:
+			return [],0,0
+	else:
+		try:
+			ListOfLinkObjects = []
+			number_found = 0
+			returned_count = 0
+			for x in domainlist:
+				docindex = search.Index(name = x.lower())
+				query_options = search.QueryOptions(limit = 50)
+				query = search.Query(query_string=query_string, options=query_options)
+				search_results = docindex.search(query,deadline=None)
+				number_found += search_results.number_found
+				returned_count += len(search_results.results)
+				i = 0
+				listob = []
+				for x in search_results:
+					listob.append(x.fields)
+					i += 1
+					if i == 10:
+						i = 0
+						listOb = copy.deepcopy(listob)
+						listob = []
+						ListOfLinkObjects.append(listOb)
+				if len(listob) > 0:
+					listOb = copy.deepcopy(listob)
+					ListOfLinkObjects.append(listOb)
+			return ListOfLinkObjects,number_found,returned_count
+		except Exception:
+			return [],0,0
+
 
 def updatequeryentry(query):
 	qry = ds.querysearched.query(ds.querysearched.keyword == query.lower()).get()

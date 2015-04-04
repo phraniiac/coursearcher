@@ -11,6 +11,6 @@ cron:
 #  url: /cronmitocw
 #  schedule: every 3 minutes
 
-#- description: indexingudemy
-#  url: /cronudemy
-#  schedule: every 3 minutes
+- description: indexingudemy
+  url: /cronudemy
+  schedule: every 3 minutes

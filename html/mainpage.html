@@ -19,10 +19,13 @@
 		<br>
 		<div class="col-sm-4"></div>
 		<div class="col-sm-8">
-			<input type="radio" name="opt" value="khanacademy" checked="checked">Khan Academy
-			<input type="radio" name="opt" value="edx">EdX
-			<input type="radio" name="opt" value="mitocw">MIT OCW
-			<input type="radio" name="opt" value="udemy">Udemy
+				{% for x in domainlist %}
+				{% if x.lower() == opt %}
+				<input type="radio" name="opt" value="{{ x.lower() }}" checked="checked"><em><b>{{ x }}</b></em>
+				{% else %}
+				<input type="radio" name="opt" value="{{ x.lower() }}"><em>{{ x }}</em>
+				{% endif %}
+				{% endfor %}
 			<input type="hidden" name="cursor" value="0">
 		</div>
 		<br>

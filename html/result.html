@@ -9,10 +9,13 @@
 				<input type="text" name="q" value="{{ mainkeyword }}" style="width:50%;height:30px;font-size:16px" class="form-control-inline">
 				<input type="submit" value="Search Courses" class="btn btn-primary">
 				<br>
-				<input type="radio" name="opt" value="khanacademy" checked="checked">Khan Academy
-				<input type="radio" name="opt" value="edx">EdX
-				<input type="radio" name="opt" value="mitocw">MIT OCW
-				<input type="radio" name="opt" value="udemy">Udemy
+				{% for x in domainlist %}
+				{% if x.lower() == opt %}
+				<input type="radio" name="opt" value="{{ x.lower() }}" checked="checked"><em><b>{{ x }}</b></em>
+				{% else %}
+				<input type="radio" name="opt" value="{{ x.lower() }}"><em>{{ x }}</em>
+				{% endif %}
+				{% endfor %}
 				<input type="hidden" name="cursor" value="0">
 			</div>
 			</form>
@@ -54,7 +57,8 @@
 			<li style="margin-bottom:20px"> {{ result[2].value }} </li>
 			</li>
 			{% else %}
-			<li><em>No results Found!!!! Remember to select/change a domain, eg. Khan Academy,  and to fill the query box before searching .</em></li>
+			<li><em>No results Found!!!! Remember to select/change a domain, eg. Khan Academy,  and to fill the query box before searching.</em></li>
+			<li><em>You can also select any to search for all the available by selecting any.</em></li>
 			{% endfor %}
 			</ul>
 		</div>
