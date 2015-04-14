@@ -6,6 +6,7 @@
 </title>
 <meta charset="utf-8">
 <meta name="description" content="This webapp allows you to search for MOOCS. Includes courses from Khan Academy, EdX, MIT OCW, Udemy.">
+<link rel="search" type="application/opensearchdescription+xml" title="CourSEarcher" href="/images/opensearch.xml" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +22,7 @@ ul
 </style>
 </head>
 <body>
-    <div id="wrap" style="height:800px;">
+    <div id="wrap">
 	{% block queryform %}{% endblock %}
     {% block mainbody %}{% endblock %}
 	<div id="push"></div>
@@ -33,7 +34,7 @@ ul
         	<a  href="http://nits.ac.in/s/pranavsharma">Pranav Sharma</a> 
         	(<a  href="http://www.nits.ac.in">NIT Silchar</a>) | 
         	<a  href="https://github.com/dastanforever/coursearcher">Clone This Project</a> | 
-        	<a  href="http://www.propranav.com">My Blog</a></p>
+        	<a  href="http://blog.propranav.com">My Blog</a></p>
       </div>
     </footer>
     </div>

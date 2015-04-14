@@ -53,8 +53,12 @@
 			<ul>
 			{% for result in resLinks %}
 			<li>
+			{% if result[1].value != 'pagetitle' and result[2].value|length > 15 %}
 			<a style="font-size:200%" href = "{{ result[0].value }}">{{ result[1].value }}</a><br>
 			<li style="margin-bottom:20px"> {{ result[2].value }} </li>
+			{% else %}
+			Result omitted due to poor quality!
+			{% endif %}
 			</li>
 			{% else %}
 			<li><em>No results Found!!!! Remember to select/change a domain, eg. Khan Academy,  and to fill the query box before searching.</em></li>

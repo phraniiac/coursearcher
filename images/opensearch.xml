@@ -1,0 +1,9 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+<ShortName>coursearcher</ShortName>
+<Description>
+This webapp allows you to search for MOOCS. Includes courses from Khan Academy, EdX, MIT OCW, Udemy.
+</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<Image width="16" height="16" type="image/x-icon">your site favicon</Image>
+<Url type="text/html" method="get" template="http://www.coursearcher.propranav.com/result?q={searchTerms}"/>
+</OpenSearchDescription>
