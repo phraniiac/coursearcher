@@ -19,4 +19,21 @@ Find courses from
 * Google App Engine NDB Model.
 * Twitter Bootstrap. ( *Soon to be changed to materializecss* )
 
-### API (Soon to be added.)
+### API (*Soon to be added.*)
+***
+There are several features in the API. Below are the steps. The api is REST standards.
+And the requests, and responses are handles in JSON.
+#### Resources.
+##### Query
+A query object has following attributes.
+* searchquery
+* numres (*Number of Results required.*)
+* source
+##### Result
+A result object has following attributes.
+* link
+* description
+* source
+##### Entry point of API.
+* Entry Url
+``/api``
