@@ -19,7 +19,7 @@ Find courses from
 * Google App Engine NDB Model.
 * Twitter Bootstrap. ( *Soon to be changed to materializecss* )
 
-### API (*Soon to be added.*)
+### API (*Future tasks.*)
 ***
 There are several features in the API. Below are the steps. The api is REST standards.
 And the requests, and responses are handles in JSON.
